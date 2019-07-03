@@ -1,16 +1,19 @@
 li {
     padding: 0;
     min-width: 33%;
-    max-width: 100%;
+    max-width: 33%;
     min-height: 300px;
     max-height: 300px;
-    display: block;
+    display: inline-flex;
     margin: 0;
+    text-align: center;
+    flex-direction: column;
 }
 
-p, h3, h4 {
+p, h3, h4, h2 {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 section {

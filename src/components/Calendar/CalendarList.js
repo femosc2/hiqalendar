@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import CalendarEvent from './CalendarEvent';
 import "./CalendarList.css"
-
-const COLORS = ["cornflowerblue", "lightgreen", "pink", "purple"]
-
 class CalendarList extends Component {
 
 
@@ -20,7 +17,7 @@ class CalendarList extends Component {
                     .filter(event => event.time.toLowerCase().includes(startTime.toLowerCase()))
                     .filter(event => event.month === dateShown.month && dateShown.year === event.year)
                     
-                    .map((event) => <CalendarEvent {...event} key={event.id} bgColor={COLORS[Math.floor(Math.random() * COLORS.length )]}
+                    .map((event) => <CalendarEvent {...event} key={event.id}
                     toggleExtension={() => toggleExtension(event.id)} />)}
             </ul>
         )
