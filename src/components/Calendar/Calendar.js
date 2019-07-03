@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import CalendarList from './CalendarList';
 import CalendarFilterInput from './CalendarFilterInput'
+import CalendarDateShower from "./CalendarDateShower"
+import CalendarDatePicker from "./CalendarDatePicker"
 
 
+const TODAY = new Date();
 class Calendar extends Component {
     state = {
         events: [{
                 name: "C#/.NET",
                 day: 4,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "09.00",
                 id: 0,
@@ -22,7 +25,7 @@ class Calendar extends Component {
             {
                 name: "Database",
                 day: 4,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "10.30",
                 id: 1,
@@ -35,7 +38,7 @@ class Calendar extends Component {
             {
                 name: "Intranätsgenomgång",
                 day: 5,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "09.00",
                 id: 2,
@@ -48,7 +51,7 @@ class Calendar extends Component {
             {
                 name: "Azure",
                 day: 8,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "09.00",
                 id: 3,
@@ -61,7 +64,7 @@ class Calendar extends Component {
             {
                 name: "Jira/Webpack",
                 day: 8,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "10.30",
                 id: 4,
@@ -74,7 +77,7 @@ class Calendar extends Component {
             {
                 name: "Scrum",
                 day: 8,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "13.00",
                 id: 5,
@@ -87,7 +90,7 @@ class Calendar extends Component {
             {
                 name: "SprintPlanering",
                 day: 8,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "14.00",
                 id: 6,
@@ -100,7 +103,7 @@ class Calendar extends Component {
             {
                 name: "React Redux / Routing",
                 day: 9,
-                month: "July",
+                month: 6,
                 year: 2019,
                 time: "10.00",
                 id: 7,
@@ -113,7 +116,20 @@ class Calendar extends Component {
             {
                 name: "Säkerhet",
                 day: 11,
-                month: "July",
+                month: 6,
+                year: 2019,
+                time: "10.00",
+                id: 8,
+                description: "Säkerhet genomgång",
+                location: "Hiq Malmös Kontor",
+                endTime: "12.00",
+                organizer: "Hiq",
+                extended: false
+            },
+            {
+                name: "Sparken",
+                day: 11,
+                month: 7,
                 year: 2019,
                 time: "10.00",
                 id: 8,
@@ -130,6 +146,10 @@ class Calendar extends Component {
             topic: "",
             organizer: "",
             startTime: ""
+        },
+        dateShown: {
+            month: TODAY.getMonth(),
+            year: TODAY.getFullYear()
         }
     }
 
@@ -149,12 +169,58 @@ class Calendar extends Component {
         console.log(this.state.filter)
     }
 
+    dateChanger = (change) => {
+        const { dateShown } = this.state
+
+            const updatedDate =
+            change === "increase"
+                ? dateShown.month === 11
+                ? { year: dateShown.year + 1, month: 0 }
+                : { ...dateShown, month: dateShown.month + 1 }
+                : dateShown.month === 0
+                ? { year: dateShown.year - 1, month: 11 }
+                : { ...dateShown, month: dateShown.month - 1 };
+            this.setState({ dateShown: updatedDate });
+
+
+
+        // if(change === "increase") {
+        //     if (dateShown.month === 12) {
+        //         this.setState({
+        //             ...this.state,
+        //             dateShown: {
+                        
+        //             }
+        //             month: 1,
+        //             year: dateShown.year + 1
+        //         })
+        //     } else {
+        //         this.setState({
+        //             ...this.state,
+        //             month: dateShown.month + 1
+        //         })
+        //     }
+        // } else {
+        //     if (dateShown.month === 1) {
+        //         this.setState({
+        //             ...this.state,
+        //             month: 12,
+        //             year
+        //         })
+        //     }
+        // }
+
+
+    }
+
     render() {
-        const { events, filter } = this.state
+        const { events, filter, dateShown } = this.state
         return (
             <section>
+            <CalendarDateShower dateShown={dateShown} />
+            <CalendarDatePicker dateChanger={this.dateChanger} />
                 <CalendarFilterInput filter={this.filter}/>
-                <CalendarList events={events} toggleExtension={this.toggleExtension} filter={filter}   />
+                <CalendarList events={events} dateShown={dateShown} toggleExtension={this.toggleExtension} filter={filter}   />
             </section>
             
         )
