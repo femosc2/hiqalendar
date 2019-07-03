@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import AppFooter from "./components/Footer/Footer"
 import AppHeader from "./components/Header/Header"
-import CalendarList from './components/Calendar/CalendarList';
+import Calendar from './components/Calendar/Calendar';
 
 function App() {
   return (
     <div className="App">
       <AppHeader />
-      <CalendarList />
+      <Calendar />
       <AppFooter />
     </div>
   );

@@ -1,0 +1,19 @@
+li {
+    padding: 0;
+    min-width: 33%;
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+    display: block;
+    margin: 0;
+}
+
+p, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+}
