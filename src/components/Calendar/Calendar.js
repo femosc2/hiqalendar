@@ -125,7 +125,12 @@ class Calendar extends Component {
             },
 
         ],
-        filter: {}
+        filter: {
+            location: "",
+            topic: "",
+            organizer: "",
+            startTime: ""
+        }
     }
 
     toggleExtension = id => {
