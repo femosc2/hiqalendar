@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React from 'react'
 
 const CalendarFilterInput = ({filter}) => {
     const handleChange = (event) => {

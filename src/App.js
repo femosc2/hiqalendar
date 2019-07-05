@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import AppFooter from "./components/Footer/Footer"
 import AppHeader from "./components/Header/Header"

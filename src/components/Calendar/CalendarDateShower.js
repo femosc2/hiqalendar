@@ -1,4 +1,4 @@
-import React, { component, useState } from 'react';
+import React from 'react';
 
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 

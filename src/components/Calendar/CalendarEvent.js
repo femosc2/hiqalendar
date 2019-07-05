@@ -18,12 +18,12 @@ class CalendarEvent extends Component {
     }
 
     render() {
-        const {name, day, month, year, time, id, organizer, location, endTime, description, extended, toggleExtension} = this.props
+        const {name, day, month, year, time, organizer, location, end, description, extended, toggleExtension} = this.props
         return (
-            <li style={{backgroundColor: this.state.bgColor}} onClick={toggleExtension}>
+            <li style={{backgroundColor: this.setBackgroundColor()}} onClick={toggleExtension}>
             <h2> {name} </h2>
             {!extended && <section>
-                <h4> {time} - {endTime}</h4> 
+                <h4> {time} - {end}</h4> 
                 <h4> {location} </h4>
                 <h4> {day} {MONTHS[month]} {year} </h4> 
             </section>}

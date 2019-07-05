@@ -3,11 +3,16 @@ import CalendarList from './CalendarList';
 import CalendarFilterInput from './CalendarFilterInput'
 import CalendarDateShower from "./CalendarDateShower"
 import CalendarDatePicker from "./CalendarDatePicker"
+import Axios from 'axios';
 
+
+const COLORS = ["cornflowerblue", "lightgreen", "pink", "purple", "blue", "chocolate", "cornsilk", "darksalmon"]
 
 const TODAY = new Date();
 class Calendar extends Component {
-    state = {
+    constructor(props){
+        super(props)
+        this.state = {
         events: [{
                 name: "C#/.NET",
                 day: 4,
@@ -19,8 +24,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "10.30",
                 organizer: "Hiq",
-                extended: false
-
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Database",
@@ -33,7 +38,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "12.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Intranätsgenomgång",
@@ -46,7 +52,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "10.30",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Azure",
@@ -59,7 +66,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "10.30",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Jira/Webpack",
@@ -72,7 +80,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "12.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Scrum",
@@ -85,7 +94,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "14.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "SprintPlanering",
@@ -98,7 +108,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "17.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "React Redux / Routing",
@@ -111,7 +122,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "12.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Säkerhet",
@@ -124,7 +136,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "12.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
             {
                 name: "Sparken",
@@ -137,7 +150,8 @@ class Calendar extends Component {
                 location: "Hiq Malmös Kontor",
                 endTime: "12.00",
                 organizer: "Hiq",
-                extended: false
+                extended: false,
+                bgColor: COLORS[Math.floor(Math.random() * COLORS.length)]
             },
 
         ],
@@ -150,7 +164,24 @@ class Calendar extends Component {
         dateShown: {
             month: TODAY.getMonth(),
             year: TODAY.getFullYear()
+        },
+        usedColors: []
         }
+        Axios.get("https://localhost:44347/api/values").then((respone)=> {
+            this.setState({events: respone.data})
+        })
+    }
+    colorPicker = () => {
+        const {usedColors} = this.state
+        const availableColors = COLORS.filter(color => !usedColors.includes(color))
+        const chosenColor = availableColors[Math.floor(Math.random() * availableColors.length )]
+        if(availableColors.length === 1){
+            this.setState({...this.state, usedColors: []})
+        }else{
+            this.setState({...this.state, usedColors: [...usedColors, chosenColor]})
+        }
+        console.log(chosenColor)
+        return chosenColor
     }
 
     toggleExtension = id => {
@@ -181,36 +212,6 @@ class Calendar extends Component {
                 ? { year: dateShown.year - 1, month: 11 }
                 : { ...dateShown, month: dateShown.month - 1 };
             this.setState({ dateShown: updatedDate });
-
-
-
-        // if(change === "increase") {
-        //     if (dateShown.month === 12) {
-        //         this.setState({
-        //             ...this.state,
-        //             dateShown: {
-                        
-        //             }
-        //             month: 1,
-        //             year: dateShown.year + 1
-        //         })
-        //     } else {
-        //         this.setState({
-        //             ...this.state,
-        //             month: dateShown.month + 1
-        //         })
-        //     }
-        // } else {
-        //     if (dateShown.month === 1) {
-        //         this.setState({
-        //             ...this.state,
-        //             month: 12,
-        //             year
-        //         })
-        //     }
-        // }
-
-
     }
 
     render() {

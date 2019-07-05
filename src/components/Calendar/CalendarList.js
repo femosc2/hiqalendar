@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import CalendarEvent from './CalendarEvent';
 import "./CalendarList.css"
+
 class CalendarList extends Component {
-
-
-
     render() {
         const { events, toggleExtension, filter, dateShown } = this.props
         const { topic, location, organizer, startTime } = filter
@@ -16,7 +14,6 @@ class CalendarList extends Component {
                     .filter(event => event.time.toLowerCase().includes(startTime.toLowerCase()))
                     .filter(event => event.time.toLowerCase().includes(startTime.toLowerCase()))
                     .filter(event => event.month === dateShown.month && dateShown.year === event.year)
-                    
                     .map((event) => <CalendarEvent {...event} key={event.id}
                     toggleExtension={() => toggleExtension(event.id)} />)}
             </ul>
