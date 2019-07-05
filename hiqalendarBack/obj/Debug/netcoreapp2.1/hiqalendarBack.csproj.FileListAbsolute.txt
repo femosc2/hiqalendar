@@ -1,0 +1,14 @@
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\bin\Debug\netcoreapp2.1\hiqalendarBack.deps.json
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\bin\Debug\netcoreapp2.1\hiqalendarBack.runtimeconfig.json
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\bin\Debug\netcoreapp2.1\hiqalendarBack.runtimeconfig.dev.json
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\bin\Debug\netcoreapp2.1\hiqalendarBack.dll
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\bin\Debug\netcoreapp2.1\hiqalendarBack.pdb
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.csprojAssemblyReference.cache
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.csproj.CoreCompileInputs.cache
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.RazorAssemblyInfo.cache
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.RazorAssemblyInfo.cs
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.AssemblyInfoInputs.cache
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.AssemblyInfo.cs
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.RazorTargetAssemblyInfo.cache
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.dll
+C:\Users\hanne\source\repos\hiqalendar\hiqalendarBack\obj\Debug\netcoreapp2.1\hiqalendarBack.pdb

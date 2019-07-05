@@ -18,9 +18,9 @@ class CalendarEvent extends Component {
     }
 
     render() {
-        const {name, day, month, year, time, organizer, location, end, description, extended, toggleExtension} = this.props
+        const {name, day, month, year, time, organizer, location, end, description, extended, toggleExtension, bgColor} = this.props
         return (
-            <li style={{backgroundColor: this.setBackgroundColor()}} onClick={toggleExtension}>
+            <li style={{backgroundColor: bgColor}} onClick={toggleExtension}>
             <h2> {name} </h2>
             {!extended && <section>
                 <h4> {time} - {end}</h4> 
